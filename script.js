@@ -150,7 +150,7 @@ button.addEventListener('click', (e) => {
 	geocodeAddress(address.value);
 });
 
-const map = L.map('map', { editable: true, zoom: 18, maxZoom: 18 }).setView([
+const map = L.map('map', { editable: true, zoom: 18, maxZoom: 19 }).setView([
 	51.505, -0.09,
 ]);
 // L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
