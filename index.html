@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://prominentedge.com/leaflet-measure-path/leaflet-measure-path.css"
+		/>
+		<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+		<script src="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.js"></script>
+		<script src="https://unpkg.com/esri-leaflet"></script>
+		<!-- <script src="https://npmcdn.com/leaflet-editable@0.6.2/src/Leaflet.Editable.js"></script> -->
+		<!-- <script src="https://prominentedge.com/leaflet-measure-path/leaflet-measure-path.js"></script> -->
+		<script src="editable.js"></script>
+		<script src="measure.js"></script>
+		<script src="leaflet.MeasurePolygon.js"></script>
+
+		<link
+			rel="stylesheet"
+			href="style.css"
+		/>
+		<title>Mapasaurus</title>
+	</head>
+	<body>
+		<main>
+			<div id="form-section">
+				<div>
+					<input
+						type="text"
+						name="address"
+						title="address"
+						placeholder="Address"
+						id="address"
+					/>
+					<button id="find-lawn">Find My Lawn</button>
+				</div>
+			</div>
+			<div id="map-section">
+				<div id="map"></div>
+			</div>
+		</main>
+
+		<script src="script.js"></script>
+	</body>
+</html>

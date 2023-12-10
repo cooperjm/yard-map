@@ -1,0 +1,52 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+}
+#map {
+	height: 100svh;
+}
+
+main {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+#form-section,
+#map-section {
+	width: 100%;
+	max-width: 50%;
+}
+
+#form-section {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+#form-section div {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 5px;
+}
+
+#form-section div button {
+	width: 100%;
+}
+
+@media only screen and (max-width: 999px) {
+	#form-section,
+	#map-section {
+		width: 100%;
+		max-width: none;
+		height: 50dvh;
+	}
+}
