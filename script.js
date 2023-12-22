@@ -150,15 +150,19 @@ button.addEventListener('click', (e) => {
 	geocodeAddress(address.value);
 });
 
-const map = L.map('map', { editable: true, zoom: 18, maxZoom: 19 }).setView([
-	51.505, -0.09,
-]);
+const map = L.map('map', { editable: true, zoom: 18 }).setView([51.505, -0.09]);
 // L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 // 	attribution:
 // 		'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 // }).addTo(map);
 
-L.esri.basemapLayer('ImageryClarity').addTo(map);
+// Use google maps satellite layer
+L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+	maxZoom: 20,
+	subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+}).addTo(map);
+
+// L.esri.basemapLayer('ImageryClarity').addTo(map);
 
 const measurePolygonControl = L.control.measurePolygon();
 measurePolygonControl.addTo(map);
