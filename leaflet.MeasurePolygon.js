@@ -104,14 +104,21 @@ L.Control.MeasurePolygon = L.Control.extend({
 			minimumFractionDigits: 2,
 			maximumFractionDigits: 2,
 		};
-		let areaValue = `${area.toLocaleString('en-US', options)} m²`;
-		let perimeterValue = `${perimeter.toLocaleString('en-US', options)} m`;
+		let newArea = area.toLocaleString('en-US', options);
+		let newPerimeter = perimeter.toLocaleString('en-US', options);
+		// let areaValue = `${area.toLocaleString('en-US', options)} m²`;
+		// let perimeterValue = `${perimeter.toLocaleString('en-US', options)} m`;
+		// Converted to Feet
+		console.log(newArea);
+		let areaValueFeet = convertSquareMetersToSquareFeet(newArea);
+		let perimeterValueFeet = convertMetersToFeet(newPerimeter);
+
 		// Get the HTML content.
 		let htmlContent = this.options.html_template;
 
 		// Replace _p_area and _p_perimetro with the values.
-		htmlContent = htmlContent.replace('_p_area', areaValue);
-		htmlContent = htmlContent.replace('_p_perimetro', perimeterValue);
+		htmlContent = htmlContent.replace('_p_area', areaValueFeet);
+		htmlContent = htmlContent.replace('_p_perimetro', perimeterValueFeet);
 
 		this._content.innerHTML = htmlContent;
 	},
@@ -148,3 +155,15 @@ L.Control.MeasurePolygon = L.Control.extend({
 L.control.measurePolygon = function (options) {
 	return new L.Control.MeasurePolygon(options);
 };
+
+function convertSquareMetersToSquareFeet(squareMeters) {
+	let formattedSquareMeters = squareMeters.replace(/,/g, '');
+	const squareFeetPerSquareMeter = 10.7639;
+	return (formattedSquareMeters * squareFeetPerSquareMeter).toFixed(2);
+}
+
+function convertMetersToFeet(meters) {
+	let formattedMeters = meters.replace(/,/g, '');
+	const feetPerMeter = 3.28084;
+	return (formattedMeters * feetPerMeter).toFixed(2);
+}
